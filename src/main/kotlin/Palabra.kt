@@ -10,23 +10,15 @@ import io.ktor.serialization.gson.*
 class Palabra(
     var palabraOculta: String
 ) {
-    init{
-        añadir_guiones()
-    }
 
-    var progreso: Array<Char?> = arrayOfNulls(palabraOculta.trim().length)
+    private var progreso: Array<Char> = Array(palabraOculta.length){'_'}
 
-    private fun añadir_guiones(){
-        for(i in 0..progreso.size){
-            progreso[i] = '_'
-        }
-    }
 
     fun revelarLetra(letra:Char):Boolean{
         var contador = 0
         var letraEncontrada = false
         for(caracter in palabraOculta){
-            if(caracter == letra){
+            if(caracter.quitarAcentos() == letra.quitarAcentos()){
                 progreso[contador] = letra
                 letraEncontrada = true
             }
