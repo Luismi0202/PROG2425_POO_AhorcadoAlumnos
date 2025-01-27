@@ -19,7 +19,7 @@ class Palabra(
         var letraEncontrada = false
         for(caracter in palabraOculta){
             if(caracter.quitarAcentos() == letra.quitarAcentos()){
-                progreso[contador] = letra
+                progreso[contador] = caracter
                 letraEncontrada = true
             }
             contador++

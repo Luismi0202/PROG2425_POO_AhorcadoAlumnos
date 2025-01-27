@@ -8,7 +8,7 @@ class Jugador(intentosMaximos: Int) {
     fun intentarLetra(letraIntentada: Char):Boolean{
         var agregada = false
         if(letraIntentada.quitarAcentos() !in letrasUsadas){
-            letrasUsadas.add(letraIntentada.quitarAcentos())
+            letrasUsadas.add(letraIntentada)
             agregada = true
         }
         return agregada
